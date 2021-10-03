@@ -70,13 +70,11 @@
 
     <table class="table table-striped">
         <tr>
-            <th>userID:</th>
-            <th>userEmail:</th>
-            <th>Orders:</th>
+            <th>orderID:</th>
+            <th>user information:</th>
+            <th>order</th>
         </tr>
-        <?php
-            require_once( 'script/outputUsers.php' );
-        ?>
+        <?php require_once('script/outputOrders.php'); ?>
     </table>
 
     <script src="js/scripts.js"></script>

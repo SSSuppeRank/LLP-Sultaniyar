@@ -9,11 +9,13 @@
     $orderEnplonation = $_POST["orderExplonation"];
     $userEmail = $_SESSION['email'];
 
-    $query = "SELECT * FROM `orders`";
+    $query = "SELECT `userID` FROM `users` WHERE `userEmail` = '$userEmail'";
     $result = mysqli_query( $link, $query )
         or die( "Error: " . mysqli_error( $link ) );  
+
+    $userID = mysqli_fetch_array( $result )['userID'];
     
-    $query = "INSERT INTO `orders`(`OrderExplonation`, `UserInformation`, `UserEmail`) VALUES ('$userInfo', '$orderEnplonation', '$userEmail')";
+    $query = "INSERT INTO `orders`(`OrderExplonation`, `UserInformation`, `UserID`) VALUES ('$userInfo', '$orderEnplonation', '$userID')";
     $result = mysqli_query( $link, $query )
         or die( "Error: " . mysqli_error( $link ) );
 

@@ -56,7 +56,7 @@
     <header class="masthead text-white bg-success text-center" id="header">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/avatar.png" alt="..." />
+            <!-- <img class="masthead-avatar mb-5" src="assets/img/avatar.png" alt="..." /> -->
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">LLP SUltaniyar</h1>
             <hr>
@@ -342,7 +342,7 @@
                             <textarea class="form-control" id="orderExplonation" rows="3" name="orderExplonation"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" value="submit" class="btn btn-outline-success">
+                            <input type="submit" value="submit" class="btn btn-outline-dark">
                         </div>
                     </form>
                 </div>

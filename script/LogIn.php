@@ -24,6 +24,12 @@
         or die( "Error: " . mysqli_error( $link ) );
         
     $hash = mysqli_fetch_array( $result )['userPass'];
+
+
+    // Получение блядского ID пользователя. ААААААААААААААААА
+    $query = "SELECT `userID` FROM `users` WHERE `userEmail` = '$email'";
+    $result = mysqli_query( $link, $query )
+        or die( "Error: " . mysqli_error( $link ) );
     
     // Проверка совпадения введенного пароля с значением userPass в базе данных
     if( password_verify( $password, $hash ) ) {
@@ -42,6 +48,7 @@
         $newURL = "../index.php";
         header('Location: ' .$newURL);
         $_SESSION['error'] = true;
+        unset( $_POST["check"] );
     }
     // проверка на нахождение в системе
     if( isset( $_POST["check"] ) ) {

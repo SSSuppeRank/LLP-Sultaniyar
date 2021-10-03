@@ -5,33 +5,28 @@
     session_start();
 
     // Сохранен ли пользователь в системе
-    if( isset( $_SESSION["inSystem"] ) && $_SESSION["inSystem"] == true ) {
-        if( isset( $_SESSION["admin"] ) ) {
-            $newURL = "adminPage.php";
-            header('Location: ' .$newURL);
-        }
-        else {
-            $newURL = "main.php";
-            header('Location: ' .$newURL);
-        }
+    if( isset( $_SESSION["inSystem"] ) && $_SESSION["inSystem"] == true && isset( $_SESSION['admin'] ) ) {
+        $newUrl = "adminPage.php";
+        header( 'Location: ' . $newUrl );
+    }
+    else if( isset( $_SESSION["inSystem"] ) && $_SESSION["inSystem"] == true ){
+        $newUrl = "main.php";
+        header( 'Location: ' . $newUrl );
     }
  
-    $var;
-    if( isset( $_SESSION['SuccessSignUp'] ) == false ) {
-        $var = "╰(*°▽°*)╯ Hey! I am Mr.Output! If you want to use the system, click [Sign Up] or [Log In]";
-    } 
+    $var = "╰(*°▽°*)╯ Hey! I am Mr.Output! If you want to use the system, click [Sign Up] or [Log In]";
+    
     if( isset( $_SESSION['SuccessSignUp'] ) ) {
         if( $_SESSION['SuccessSignUp'] == true ) {
             $var = "(¬‿¬) Yeah! Now you are with us! Now you can Login.";
             unset( $_SESSION['SuccessSignUp'] );
         }
-    }
-    if( isset( $_SESSION['SuccessSignUp'] ) ) {
-        if( $_SESSION['SuccessSignUp'] == false ) {
+        else if( $_SESSION['SuccessSignUp'] == false ) {
             $var = "(╯°□°）╯ This email is already in use! Use another email or Login to she system.";
             unset( $_SESSION['SuccessSignUp'] );
         }
     }
+    
     if( isset( $_SESSION['error'] ) ) {
         $var = "¯\_(ツ)_/¯ Smth get wrong. Password or email? I do not care!";
         unset( $_SESSION['error']  );
